@@ -99,4 +99,5 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
         if (p0 == fadeAnimator)
             Toast.makeText(this, "$p0 Animation Repeated", Toast.LENGTH_SHORT).show()
     }
+
 }
