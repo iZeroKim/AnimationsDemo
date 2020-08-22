@@ -57,7 +57,14 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
     //Listening to Animation Events
     override fun onAnimationStart(p0: Animator?) {
-        Toast.makeText(this, "Animation Started", Toast.LENGTH_SHORT).show()
+        if (p0 == scaleAnimator)
+            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+        if (p0 == rotateAnimator)
+            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+        if (p0 == translateAnimator)
+            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+        if (p0 == fadeAnimator)
+            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
     }
 
     override fun onAnimationEnd(p0: Animator?) {
