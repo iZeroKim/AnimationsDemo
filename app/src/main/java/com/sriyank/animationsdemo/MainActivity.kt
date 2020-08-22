@@ -58,46 +58,58 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     //Listening to Animation Events
     override fun onAnimationStart(p0: Animator?) {
         if (p0 == scaleAnimator)
-            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "ScaleAnimator Animation Started", Toast.LENGTH_SHORT).show()
         if (p0 == rotateAnimator)
-            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "RotateAnimator Animation Started", Toast.LENGTH_SHORT).show()
         if (p0 == translateAnimator)
-            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Translate Animation Started", Toast.LENGTH_SHORT).show()
         if (p0 == fadeAnimator)
-            Toast.makeText(this, "$p0 Animation Started", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade Animation Started", Toast.LENGTH_SHORT).show()
     }
 
     override fun onAnimationEnd(p0: Animator?) {
         if (p0 == scaleAnimator)
-            Toast.makeText(this, "$p0 Animation Ended", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Scale Animation Ended", Toast.LENGTH_SHORT).show()
         if (p0 == rotateAnimator)
-            Toast.makeText(this, "$p0 Animation Ended", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Rotate Animation Ended", Toast.LENGTH_SHORT).show()
         if (p0 == translateAnimator)
-            Toast.makeText(this, "$p0 Animation Ended", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Translate Animation Ended", Toast.LENGTH_SHORT).show()
         if (p0 == fadeAnimator)
-            Toast.makeText(this, "$p0 Animation Ended", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade Animation Ended", Toast.LENGTH_SHORT).show()
     }
 
     override fun onAnimationCancel(p0: Animator?) {
         if (p0 == scaleAnimator)
-            Toast.makeText(this, "$p0 Animation Cancelled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Scale Animation Cancelled", Toast.LENGTH_SHORT).show()
         if (p0 == rotateAnimator)
-            Toast.makeText(this, "$p0 Animation Cancelled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Rotate Animation Cancelled", Toast.LENGTH_SHORT).show()
         if (p0 == translateAnimator)
-            Toast.makeText(this, "$p0 Animation Cancelled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Translate Animation Cancelled", Toast.LENGTH_SHORT).show()
         if (p0 == fadeAnimator)
-            Toast.makeText(this, "$p0 Animation Cancelled", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade Animation Cancelled", Toast.LENGTH_SHORT).show()
     }
 
     override fun onAnimationRepeat(p0: Animator?) {
         if (p0 == scaleAnimator)
-            Toast.makeText(this, "$p0 Animation Repeated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Scale Animation Repeated", Toast.LENGTH_SHORT).show()
         if (p0 == rotateAnimator)
-            Toast.makeText(this, "$p0 Animation Repeated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Rotate Animation Repeated", Toast.LENGTH_SHORT).show()
         if (p0 == translateAnimator)
-            Toast.makeText(this, "$p0 Animation Repeated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Translate Animation Repeated", Toast.LENGTH_SHORT).show()
         if (p0 == fadeAnimator)
-            Toast.makeText(this, "$p0 Animation Repeated", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Fade Animation Repeated", Toast.LENGTH_SHORT).show()
+    }
+
+    fun setFromXML(view: View){
+        val animator = AnimatorInflater.loadAnimator(this, R.animator.set)
+        animator.apply {
+            setTarget(targetImage)
+            start()
+        }
+    }
+
+    fun setFromCode(view: View){
+
     }
 
 }
