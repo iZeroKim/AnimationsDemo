@@ -130,6 +130,12 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
 
         rootSet.playSequentially(flip, childSet)
         childSet.playTogether(scaleX, scaleY)
+
+        //Or
+        /**
+         *      rootSet.play(flip).before(childSet)
+         *      childSet.play(scaleX).with(scaleY)
+         */
         rootSet.start()
     }
 
