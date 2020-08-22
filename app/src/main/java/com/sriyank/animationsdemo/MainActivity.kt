@@ -9,13 +9,17 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
+    private var fadeAnimator: Animator? = null
+    private var scaleAnimator: Animator? = null
+    private var rotateAnimator: Animator? = null
+    private var translateAnimator: Animator? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
     fun rotateAnimation(view: View) {
-
-        val rotateAnimator = AnimatorInflater.loadAnimator(this, R.animator.rotate)
+        rotateAnimator = AnimatorInflater.loadAnimator(this, R.animator.rotate)
         rotateAnimator?.apply {
             setTarget(targetImage)
             addListener(this@MainActivity)
@@ -25,8 +29,7 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
     fun scaleAnimation(view: View) {
-
-        val scaleAnimator = AnimatorInflater.loadAnimator(this, R.animator.scale)
+        scaleAnimator = AnimatorInflater.loadAnimator(this, R.animator.scale)
         scaleAnimator?.apply {
             setTarget(targetImage)
             addListener(this@MainActivity)
@@ -35,9 +38,8 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
     fun translateAnimation(view: View) {
-
-        val translateAnimator = AnimatorInflater.loadAnimator(this, R.animator.translate)
-        translateAnimator.apply {
+        translateAnimator = AnimatorInflater.loadAnimator(this, R.animator.translate)
+        translateAnimator?.apply {
             setTarget(targetImage)
             addListener(this@MainActivity)
             start()
@@ -45,9 +47,8 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
     fun fadeAnimation(view: View) {
-
-        val fadeAnimator = AnimatorInflater.loadAnimator(this, R.animator.alpha)
-        fadeAnimator.apply {
+        fadeAnimator = AnimatorInflater.loadAnimator(this, R.animator.alpha)
+        fadeAnimator?.apply {
             setTarget(targetImage)
             addListener(this@MainActivity)
             start()
