@@ -2,6 +2,8 @@ package com.sriyank.animationsdemo
 
 import android.animation.Animator
 import android.animation.AnimatorInflater
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -109,7 +111,26 @@ class MainActivity : AppCompatActivity(), Animator.AnimatorListener {
     }
 
     fun setFromCode(view: View){
+        //Root Animator Set
+        val rootSet = AnimatorSet()
 
+        //Flip Animation
+        val flip = ObjectAnimator.ofFloat(targetImage, "rotationX", 0.0f,360f)
+        flip.duration = 500
+
+        //Child Animator Set
+        val childSet = AnimatorSet()
+
+        //Scale animations
+        val scaleX = ObjectAnimator.ofFloat(targetImage, "scaleX", 1.0f, 1.5f)
+        scaleX.duration = 500
+
+        val scaleY = ObjectAnimator.ofFloat(targetImage, "scaleY", 1.0f, 1.5f)
+        scaleY.duration = 500
+
+        rootSet.playSequentially(flip, childSet)
+        childSet.playTogether(scaleX, scaleY)
+        rootSet.start()
     }
 
 }
